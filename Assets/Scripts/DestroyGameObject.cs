@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -11,8 +9,10 @@ public class DestroyGameObject : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Destroy(collision.gameObject);
-        score++;
-        txtScore.text = "Score " + score;
+        Destroy(collision.gameObject); 
+        score++; 
+        txtScore.text = "Score " + score; 
+
+        Debug.Log("Score actuel : " + score);
     }
 }
