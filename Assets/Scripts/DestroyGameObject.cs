@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using TMPro;
 
@@ -29,6 +30,23 @@ public class DestroyGameObject : MonoBehaviour
         if (score >= 10 && directionalLight != null)
         {
             Debug.Log("Le soleil disparaît !");
+            StartCoroutine(DiminuerLumiere());
         }
+    }
+
+    IEnumerator DiminuerLumiere()
+    {
+        float duree = 3f;
+        float temps = 0;
+        float intensiteInitiale = directionalLight.intensity;
+
+        while (temps < duree)
+        {
+            temps += Time.deltaTime;
+            directionalLight.intensity = Mathf.Lerp(intensiteInitiale, 0, temps / duree);
+            yield return null;
+        }
+
+        directionalLight.intensity = 0;
     }
 }
