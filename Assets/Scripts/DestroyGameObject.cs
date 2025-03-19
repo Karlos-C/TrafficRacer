@@ -1,5 +1,5 @@
-using TMPro;
 using UnityEngine;
+using TMPro;
 
 public class DestroyGameObject : MonoBehaviour
 {
@@ -25,5 +25,10 @@ public class DestroyGameObject : MonoBehaviour
         txtScore.text = "Score " + score;
 
         Debug.Log("Score actuel : " + score);
+
+        if (score >= 10 && directionalLight != null)
+        {
+            Debug.Log("Le soleil disparaît !");
+        }
     }
 }
