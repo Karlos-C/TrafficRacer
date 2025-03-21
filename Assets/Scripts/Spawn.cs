@@ -17,10 +17,18 @@ public class Spawn : MonoBehaviour
     [SerializeField] ParticleSystem spawnEffect;
     [SerializeField] AudioClip spawnSound;
     [SerializeField] AudioSource audioSource;
+    [SerializeField] GameObject[] obstacles;
 
     void Start()
     {
         StartCoroutine(SpawnCar());
+    }
+
+
+    void SpawnObstacle()
+    {
+        int pos = Random.Range(0, sp.Length);
+        Instantiate(obstacles[Random.Range(0, obstacles.Length)], sp[pos].position, Quaternion.identity);
     }
 
     IEnumerator SpawnCar()
