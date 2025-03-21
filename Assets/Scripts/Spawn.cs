@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Spawn : MonoBehaviour
 {
+    GameObject carInstance = Instantiate(cars[nr], sp[x].position, Quaternion.identity);
+    float speedMultiplier = Random.Range(0.8f, 1.5f);
+    carInstance.GetComponent<MoveForward>().speed *= speedMultiplier;
+
+
     [SerializeField] GameObject[] cars;
     [SerializeField] Transform[] sp;
     [SerializeField] float spawnRate = 1.5f;
