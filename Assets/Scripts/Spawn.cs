@@ -14,6 +14,10 @@ public class Spawn : MonoBehaviour
     [SerializeField] float spawnRate = 1.5f;
     int totalCars = 0;
 
+    [SerializeField] ParticleSystem spawnEffect;
+    [SerializeField] AudioClip spawnSound;
+    [SerializeField] AudioSource audioSource;
+
     void Start()
     {
         StartCoroutine(SpawnCar());
